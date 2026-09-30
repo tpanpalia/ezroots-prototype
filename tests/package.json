@@ -1,0 +1,12 @@
+{
+  "name": "ezroots-prototype-tests",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "smoke": "node smoke.mjs",
+    "flows": "node flows.mjs"
+  },
+  "dependencies": {
+    "puppeteer-core": "^23"
+  }
+}

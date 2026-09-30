@@ -1,0 +1,4 @@
+node_modules/
+tests/shots/
+dist/app.check.mjs
+.DS_Store

@@ -1,0 +1,74 @@
+[
+ {
+  "old": "  return {\n    userId: null,\n    offline: !1,",
+  "new": "  return EzAugment({\n    userId: null,\n    offline: !1,"
+ },
+ {
+  "old": "    teacherContext: { sectionId: \"sec-nursery-a\", subject: \"All\" },\n  };\n}\nconst mE = \"ezroots-prototype-v1\";",
+  "new": "    teacherContext: { sectionId: \"sec-nursery-a\", subject: \"All\" },\n  });\n}\nconst mE = \"ezroots-prototype-v2\";"
+ },
+ {
+  "old": "    i = Mu(),",
+  "new": "    i = EzNav(),"
+ },
+ {
+  "old": "e.role === \"parent\" && t.jsx(Ju, {}),",
+  "new": "e.role === \"parent\" && t.jsx(EzParentSwitcher, {}),"
+ },
+ {
+  "old": "    n = A.students.find((c) => c.id === (e == null ? void 0 : e.childId)),\n    s = A.sections.find((c) => c.id === n.sectionId),",
+  "new": "    n = A.students.find((c) => c.id === EzParentChildId(A, e)),\n    s = A.sections.find((c) => c.id === n.sectionId),"
+ },
+ {
+  "old": "t.jsx(B.StrictMode, { children: t.jsx(AB, {}) }),",
+  "new": "t.jsx(B.StrictMode, { children: t.jsx(EzApp, {}) }),"
+ },
+ {
+  "old": "                    active: !0,\n                    childId: k,\n                  }),\n                  U.users.push({\n                    id: eA,",
+  "new": "                    active: !0,\n                    childId: k,\n                    childIds: [k],\n                    invite: { status: \"invited\", sentAt: uA, via: \"SMS link\" },\n                  }),\n                  U.users.push({\n                    id: eA,"
+ },
+ {
+  "old": "(a.users = a.users.filter((g) => g.childId !== A)))",
+  "new": "EzLeaverUsers(a, A, !0))"
+ },
+ {
+  "old": "a.users.forEach((g) => {\n                    g.childId === A && (g.active = !1);\n                  }));",
+  "new": "EzLeaverUsers(a, A, !1));"
+ },
+ {
+  "old": "  [\"parent\", \"pa-1\", \"Lakshmi · Aarav’s parent\"],\n];",
+  "new": "  [\"parent\", \"pa-1\", \"Lakshmi · Aarav & Ananya’s parent\"],\n  [\"parent\", \"pa-2\", \"Suresh · new invite (verify + consent)\"],\n];"
+ },
+ {
+  "old": "Gn(A, i).engagement < 60),",
+  "new": "Gn(A, i).engagement < A.settings.lowUsageThreshold),"
+ },
+ {
+  "old": "                \"Teachers will be able to build drag-and-drop, matching and sorting activities with the same builder EzRoots uses.\",\n              }),\n              t.jsx(\"button\", {\n                className: \"btn secondary\",\n                disabled: !0,\n                children: \"Open activity builder\",\n              }),",
+  "new": "                \"Teachers can ask EzRoots to build an activity; the EzRoots academic team uses the activity builder and reviews every activity before children see it.\",\n              }),\n              t.jsx(\"button\", {\n                className: \"btn secondary\",\n                disabled: !0,\n                children: \"Builder is for the EzRoots academic team\",\n              }),"
+ },
+ {
+  "old": "    parent: \"/parent\",\n  },\n  qe = {",
+  "new": "    parent: \"/parent\",\n    coordinator: \"/coordinator\",\n  },\n  qe = {\n    coordinator: \"Academic Coordinator\","
+ },
+ {
+  "old": "function Yi({ v: A }) {\n  return t.jsxs(\"div\", {\n    className: \"stack\",\n    children: [\n      t.jsx(\"video\", {\n        className: \"player\",\n        controls: !0,\n        preload: \"metadata\",\n        controlsList: \"nodownload\",\n        src: Ea(A.folder, A.file),\n      }),",
+  "new": "function Yi({ v: A }) {\n  const EzLog = EzUseResourceLog();\n  return t.jsxs(\"div\", {\n    className: \"stack\",\n    children: [\n      t.jsx(\"video\", {\n        className: \"player\",\n        controls: !0,\n        preload: \"metadata\",\n        controlsList: \"nodownload\",\n        src: Ea(A.folder, A.file),\n        onPlay: () => EzLog(\"video_watched\", { videoId: A.id }),\n        onEnded: () => EzLog(\"video_completed\", { videoId: A.id }),\n      }),"
+ },
+ {
+  "old": "function da({ lp: A, school: e }) {\n  return t.jsxs(\"div\", {",
+  "new": "function da({ lp: A, school: e }) {\n  const EzLog = EzUseResourceLog();\n  B.useEffect(() => EzLog(\"resource_viewed\", { lessonPlanId: A.id }), [A.id]);\n  return t.jsxs(\"div\", {"
+ },
+ {
+  "old": "  [\"parent\", \"pa-2\", \"Suresh · new invite (verify + consent)\"],",
+  "new": "  [\"parent\", \"pa-2\", \"Suresh · new invite (verify + consent)\"],\n  [\"coordinator\", \"u-co\", \"Meera · Sunrise academics\"],"
+ },
+ {
+  "old": "    const A = localStorage.getItem(mE);\n    if (A) return JSON.parse(A);",
+  "new": "    const A = localStorage.getItem(mE);\n    if (A) {\n      const d = JSON.parse(A);\n      if (d.ezBuild === EzBuild) return d;\n      // Saved data is from an older build: start fresh but keep who is signed in.\n      const f = wE();\n      if (f.users.some((u) => u.id === d.userId)) f.userId = d.userId;\n      f.feedback = d.feedback ?? [];\n      return f;\n    }"
+ },
+ {
+  "old": "t.jsx(\"b\", { children: \"EZ ROOTS · CLICKABLE PROTOTYPE\" }),",
+  "new": "t.jsx(\"b\", { children: `EZ ROOTS · PROTOTYPE · BUILD ${EzBuild}` }),"
+ }
+]
