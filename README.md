@@ -22,6 +22,10 @@ Saved demo data is replaced automatically when `EzBuild` (src/seed.jsx) changes;
 
 If the v1 source repository turns up, port `src/` and `patches.json` into it rather than keeping this split build.
 
+## Deploy (Vercel)
+
+`vercel.json` serves the committed `dist/` folder as a static site (no build on Vercel); `build.py` writes the page as both `dist/index.html` and `dist/EzRoots-Prototype-v2.html`. In the Vercel project keep **Root Directory** as the repo root. After changing `src/`, run `python3 build.py` and commit `dist/` before pushing.
+
 ## Tests
 
 Headless Chrome checks every screen as every role (`smoke`) and runs the key end-to-end flows (`flows`).

@@ -67,6 +67,8 @@ def main():
     html = head + '<script type="module" crossorigin>' + js + "</script>" + tail
     out = ROOT / "dist/EzRoots-Prototype-v2.html"
     out.write_text(html)
+    # Same page as index.html, so static hosts (Vercel, Netlify) serve it at "/".
+    (ROOT / "dist/index.html").write_text(html)
     print(f"built {out} ({len(html)/1e6:.2f} MB)")
 
 

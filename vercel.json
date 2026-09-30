@@ -1,0 +1,8 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "echo 'No install needed'",
+  "buildCommand": "echo 'Prebuilt: serving dist/ (run python3 build.py locally before committing)'",
+  "outputDirectory": "dist",
+  "cleanUrls": true
+}
